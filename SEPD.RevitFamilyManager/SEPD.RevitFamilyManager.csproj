@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34205291-7DFF-49B7-8E67-0F9CD6A9F026}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEPD.RevitFamilyManager</RootNamespace>
+    <AssemblyName>SEPD.RevitFamilyManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNet.Utilities">
+      <HintPath>..\..\API\DotNet.Utilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\..\API\Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\API\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\API\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Owc11">
+      <HintPath>..\..\API\Microsoft.Office.Interop.Owc11.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\..\API\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\..\API\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Model">
+      <HintPath>..\..\API\Model.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\API\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\API\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\API\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\API\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="OWC10Chart">
+      <HintPath>..\..\API\OWC10Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="RevitAPI">
+      <HintPath>..\..\API\RevitAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitAPIUI">
+      <HintPath>..\..\API\RevitAPIUI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitDBAPI">
+      <HintPath>..\..\API\RevitDBAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="RevitUIAPI">
+      <HintPath>..\..\API\RevitUIAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="SEPD.CommunicationModule">
+      <HintPath>..\..\API\SEPD.CommunicationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\API\stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FamilyManagerDownload\RevitFamilyManagerFormDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyManagerDownload\RevitFamilyManagerFormDB.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyManagerDownload\RevitFamilyManagerMainDB.cs" />
+    <Compile Include="SubForm\configForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\configForm.Designer.cs">
+      <DependentUpon>configForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleHelp\DataUB.cs" />
+    <Compile Include="SubForm\DecisionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\DecisionForm.Designer.cs">
+      <DependentUpon>DecisionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleHelp\ExcelHelper.cs" />
+    <Compile Include="ExecuteEvent\ExecuteEventIO.cs" />
+    <Compile Include="ExecuteEvent\ExecuteEventUB.cs" />
+    <Compile Include="ExecuteEvent\ExecuteEventUS.cs" />
+    <Compile Include="ExecuteEvent\ExecuteEventU.cs" />
+    <Compile Include="ExecuteEvent\ExecuteEvent.cs" />
+    <Compile Include="FamilyBatchTool\IFCtoRVTForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyBatchTool\IFCtoRVTForm.Designer.cs">
+      <DependentUpon>IFCtoRVTForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyBatchTool\IFCtoRVTMain.cs" />
+    <Compile Include="ModuleHelp\ModuleTestPart.cs" />
+    <Compile Include="ModuleHelp\MyMeans.cs" />
+    <Compile Include="ModuleHelp\MyModule.cs" />
+    <Compile Include="old_code\RevitFamilyManagerFormED.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="old_code\RevitFamilyManagerFormED.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormSTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormSTC.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormSTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormSTF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormSTF.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormSTF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyManagerUpload\RevitFamilyManagerFormUB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyManagerUpload\RevitFamilyManagerFormUB.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormUB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyManagerUpload\RevitFamilyManagerMainUB.cs" />
+    <Compile Include="old_code\RevitFamilyManagerMainED.cs" />
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormEP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormEP.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormEP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerFormIO.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleHelp\getFilePics.cs" />
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
+    <Compile Include="old_code\RevitFamilyManagerFormULS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="old_code\RevitFamilyManagerFormULS.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormULS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerMainEP.cs" />
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerMainIO.cs" />
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerMainSTC.cs" />
+    <Compile Include="FamilyBatchTool\RevitFamilyManagerMainSTF.cs" />
+    <Compile Include="old_code\RevitFamilyManagerMainUL.cs" />
+    <Compile Include="old_code\RevitFamilyManagerMainDL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="old_code\RevitFamilyManagerFormUL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="old_code\RevitFamilyManagerFormUL.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormUL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="old_code\RevitFamilyManagerMainULS.cs" />
+    <Compile Include="FamilyManager\RevitFamilyManagerFormMB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyManager\RevitFamilyManagerFormMB.Designer.cs">
+      <DependentUpon>RevitFamilyManagerFormMB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyManager\RevitFamilyManagerMainMB.cs" />
+    <Compile Include="RevitFamilyManagerRibbon.cs" />
+    <Compile Include="old_code\RevitFamilyPlatformFormDL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="old_code\RevitFamilyPlatformFormDL.Designer.cs">
+      <DependentUpon>RevitFamilyPlatformFormDL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\selectStandardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\selectStandardForm.Designer.cs">
+      <DependentUpon>selectStandardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForm\yesOrNotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\yesOrNotForm.Designer.cs">
+      <DependentUpon>yesOrNotForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SubForm\configForm.resx">
+      <DependentUpon>configForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\DecisionForm.resx">
+      <DependentUpon>DecisionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyBatchTool\IFCtoRVTForm.resx">
+      <DependentUpon>IFCtoRVTForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="old_code\RevitFamilyManagerFormED.resx">
+      <DependentUpon>RevitFamilyManagerFormED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyBatchTool\RevitFamilyManagerFormEP.resx">
+      <DependentUpon>RevitFamilyManagerFormEP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyBatchTool\RevitFamilyManagerFormIO.resx">
+      <DependentUpon>RevitFamilyManagerFormIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyManagerDownload\RevitFamilyManagerFormDB.resx">
+      <DependentUpon>RevitFamilyManagerFormDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyBatchTool\RevitFamilyManagerFormSTC.resx">
+      <DependentUpon>RevitFamilyManagerFormSTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyBatchTool\RevitFamilyManagerFormSTF.resx">
+      <DependentUpon>RevitFamilyManagerFormSTF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyManagerUpload\RevitFamilyManagerFormUB.resx">
+      <DependentUpon>RevitFamilyManagerFormUB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="old_code\RevitFamilyManagerFormULS.resx">
+      <DependentUpon>RevitFamilyManagerFormULS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="old_code\RevitFamilyManagerFormUL.resx">
+      <DependentUpon>RevitFamilyManagerFormUL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="old_code\RevitFamilyPlatformFormDL.resx">
+      <DependentUpon>RevitFamilyPlatformFormDL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyManager\RevitFamilyManagerFormMB.resx">
+      <DependentUpon>RevitFamilyManagerFormMB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\selectStandardForm.resx">
+      <DependentUpon>selectStandardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\yesOrNotForm.resx">
+      <DependentUpon>yesOrNotForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+    <None Include="Resources\属性批量修改.png" />
+    <None Include="Resources\族属性批量提取.png" />
+    <None Include="Resources\族批量上传.png" />
+    <None Include="Resources\族管理下载ICO.bmp" />
+    <None Include="Resources\族管理上传ICO.bmp" />
+    <None Include="Resources\帮助说明文档.png" />
+    <None Include="Resources\族库删改管理.png" />
+    <None Include="Resources\IFC文件转RVT文件.png" />
+    <None Include="Resources\参数统计.png" />
+    <Content Include="_README.txt" />
+    <None Include="SEPD.RevitFamilyManager.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
